@@ -1,0 +1,9 @@
+<suite name="TestFFC">
+    <test name="Login and Customer Tests">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.PunchInTest"/>
+            <class name="tests.CustomerTest"/>
+        </classes>
+    </test>
+</suite>
