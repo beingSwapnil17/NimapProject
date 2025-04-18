@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "28fbd173-1f89-4f7a-ab36-3443efc41999",
+		"name": "Nimap_ API_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28358838",
+		"_collection_link": "https://www.postman.com/beingswapnil17/workspace/api-acti/collection/28358838-28fbd173-1f89-4f7a-ab36-3443efc41999?action=share&source=collection_link&creator=28358838"
+	},
+	"item": [
+		{
+			"name": "Add New Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should return 401 Unauthorized in response body\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Status).to.eql(401);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{vault:authorization-password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Username",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"wronguser@test.com\",\r\n  \"password\": \"wrongpass\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testffc.nimapinfotech.com/api/login",
+					"protocol": "https",
+					"host": [
+						"testffc",
+						"nimapinfotech",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
